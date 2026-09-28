@@ -91,7 +91,6 @@ margin_bottom = 40.0
 unique_name_in_owner = true
 margin_right = 149.0
 margin_bottom = 40.0
-rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 size_flags_horizontal = 0
 text = "Allow Gyro"

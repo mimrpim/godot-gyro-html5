@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://assets/school_model.glb" type="PackedScene" id=2]
+[ext_resource path="res://main/main.gd" type="Script" id=3]
+[ext_resource path="res://main/gyro_component/gyro_component.tscn" type="PackedScene" id=11]
+
+[node name="Main" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40951, -2.00553, 0.655734 )
+script = ExtResource( 3 )
+
+[node name="GyroComponent" parent="." instance=ExtResource( 11 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LeftContainer" type="ViewportContainer" parent="HUD/HBoxContainer"]
+margin_right = 538.0
+margin_bottom = 1920.0
+rect_pivot_offset = Vector2( -1890, -431 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="ViewportLeft" type="Viewport" parent="HUD/HBoxContainer/LeftContainer"]
+size = Vector2( 538, 1920 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="CameraLeft" type="Camera" parent="HUD/HBoxContainer/LeftContainer/ViewportLeft"]
+
+[node name="RightContainer" type="ViewportContainer" parent="HUD/HBoxContainer"]
+margin_left = 542.0
+margin_right = 1080.0
+margin_bottom = 1920.0
+rect_pivot_offset = Vector2( -1890, -431 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="ViewportRight" type="Viewport" parent="HUD/HBoxContainer/RightContainer"]
+size = Vector2( 538, 1920 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="CameraRight" type="Camera" parent="HUD/HBoxContainer/RightContainer/ViewportRight"]
+
+[node name="OSLabel" type="Label3D" parent="HUD/HBoxContainer"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.581762, -2.44714 )
+visible = false
+pixel_size = 0.03
+billboard = 1
+modulate = Color( 1, 0, 0, 1 )
+text = "OS"
+
+[node name="GyroscopeLabel" type="Label3D" parent="HUD/HBoxContainer"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.51633 )
+visible = false
+pixel_size = 0.03
+billboard = 1
+modulate = Color( 1, 0, 0, 1 )
+text = "Gyroscope"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="Head" type="Spatial" parent="."]
+
+[node name="LeftEyePos" type="Spatial" parent="Head"]
+
+[node name="RightEyePos" type="Spatial" parent="Head"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="EnableGyroBtn" type="CheckButton" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+margin_right = 149.0
+margin_bottom = 40.0
+focus_mode = 0
+size_flags_horizontal = 0
+text = "Allow Gyro"
+
+[node name="school_model" parent="." instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -3.146, -5.359, 3.528 )
+
+[connection signal="gyroscope_triggered" from="GyroComponent" to="." method="_on_SensorComponent_gyroscope_triggered"]
+[connection signal="ios_permission_requested" from="GyroComponent" to="." method="_on_SensorComponent_ios_permission_requested"]
+[connection signal="toggled" from="CanvasLayer/CenterContainer/EnableGyroBtn" to="." method="_on_EnableGyro_toggled"]

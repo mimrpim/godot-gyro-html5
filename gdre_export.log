@@ -1,0 +1,38 @@
+GDRE Tools v2.6.4
+Windows 10.0.26200, AMD Radeon(TM) Vega 8 Graphics, vulkan
+Opening file: C:/Users/kudlac26ma/Downloads/deploy-6abd0fb6cae6233538e80d30/index.pck
+Multiple passing candidates for bytecode version 13:
+3.5.0-stable (a7aad78), 3.2.0-stable (5565f55)
+Choosing only one that matches engine version: 3.5.0-stable (a7aad78).
+Loaded 14 imported files
+Detected Engine Version: 3.6.3
+Detected Bytecode Revision: 3.5.0-stable (a7aad78)
+Verified 37 files, no errors detected!
+Extracted 37 files, no errors detected!
+WARNING: Mesh uses old surface format, which is deprecated (and loads slower). Consider re-importing or re-saving the scene. Path: "res://.import/school_model.glb-f8c005f18b52b96dfcea269a72b25773.scn::5"
+   at: ArrayMesh::_set (scene\resources\mesh.cpp:1369)
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     3
+Scripts not decompiled:                 0
+Imported resources for export session:  14
+Successfully converted:                 14
+Lossy:                                  0
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.6.3 to edit the project.
+
+*******************************************************************************
+

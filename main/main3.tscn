@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
-[ext_resource path="res://assets/school_model.glb" type="PackedScene" id=2]
 [ext_resource path="res://main/main.gd" type="Script" id=3]
 [ext_resource path="res://main/gyro_component/gyro_component.tscn" type="PackedScene" id=11]
 
@@ -87,9 +86,6 @@ margin_bottom = 40.0
 focus_mode = 0
 size_flags_horizontal = 0
 text = "Allow Gyro"
-
-[node name="school_model" parent="." instance=ExtResource( 2 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -3.146, -5.359, 3.528 )
 
 [node name="Player" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3526, 3.65185, -11.9208 )
